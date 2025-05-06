@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="form.css">
+
+  <title>Accessible Form UI Component</title>
+</head>
+
+<body>
+  <form name="signupForm" action="">
+    <div>
+      <label for="fullName">Full name</label>
+      <input type="text" name="fullName" id="fullName" placeholder="What should we call you?" required minlength="3">
+      <strong class="form-validation-error">Invalid text input</strong>
+    </div>
+    
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="example@email.com" required>
+      <strong class="form-validation-error">Invalid email input</strong>
+    </div>
+    
+
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="xxxxxxxx" required minlength="8">
+      <strong class="form-validation-error">Invalid password</strong>
+    </div>
+    
+
+    <div>
+       <label for="confirmPassword">Confirm Password</label>
+      <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxxxxxx" required minlength="8">
+      <strong class="form-validation-error">Invalid password</strong>
+    </div>
+
+   
+
+    <input type="submit" value="Update Profile">
+  </form>
+  <!-- <section id="progress-section">
+    <progress id="progress-bar" value="2" max="5">40%</progress>
+    <label for="progress-bar">Profile Completeness</label>
+    <ul>
+      <li><del>Create Account</del></li>
+      <li><del>Update Roadmap Progress</del></li>
+      <li>Setup Public Profile</li>
+      <li>Complete Your First Project</li>
+      <li>Invite Your Friends</li>
+    </ul>
+  </section> -->
+</body>
+
+</html>
