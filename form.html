@@ -14,38 +14,83 @@
 </head>
 
 <body>
-  <form name="signupForm" action="">
-    <div>
-      <label for="fullName">Full name</label>
-      <input type="text" name="fullName" id="fullName" placeholder="What should we call you?" required minlength="3">
-      <strong class="form-validation-error">Invalid text input</strong>
-    </div>
-    
+  <main>
+    <h1>Accessible Form UI</h1>
+    <form name="signupForm" action="">
 
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" placeholder="example@email.com" required>
-      <strong class="form-validation-error">Invalid email input</strong>
-    </div>
-    
+        <div>
+          <label for="fullName">Full name</label>
+          <input type="text" name="fullName" id="fullName" placeholder="What should we call you?" required
+            minlength="3">
+          <strong class="form-validation-error">Invalid text input</strong>
+        </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" placeholder="xxxxxxxx" required minlength="8">
-      <strong class="form-validation-error">Invalid password</strong>
-    </div>
-    
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="example@email.com" required>
+          <strong class="form-validation-error">Invalid email input</strong>
+        </div>
 
-    <div>
-       <label for="confirmPassword">Confirm Password</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxxxxxx" required minlength="8">
-      <strong class="form-validation-error">Invalid password</strong>
-    </div>
+        <div>
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" name="password" id="password" placeholder="xxxxxxxx" required minlength="8"
+              aria-describedby="toggleDesc">
+            <button type="button" class="toggle-password" aria-label="Show password" aria-pressed="false"
+              id="togglePassword" title="Show password">👁️</button>
+          </div>
+          <strong class="form-validation-error">Invalid password</strong>
+        </div>
+        <div id="toggleDesc" class="sr-only">Press the button to show or hide the password</div>
+        <script>
+          const passwordInput = document.getElementById('password');
+          const toggleButton = document.getElementById('togglePassword')
 
-   
+          toggleButton.addEventListener('click', () => {
+            const isPassword = passwordInput.type == 'password';
 
-    <input type="submit" value="Update Profile">
-  </form>
+            passwordInput.type = isPassword ? 'text' : 'password';
+
+            toggleButton.setAttribute('aria-label', isPassword ? 'true' : 'false');
+            toggleButton.title = isPassword ? 'Hide password' : 'Show password';
+            toggleButton.textContent = isPassword ? '🙈' : '👁️';
+
+          })
+        </script>
+
+        <div>
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="password-wrapper">
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxxxxxx" required
+              minlength="8" aria-describedby="toggleConfirmDesc">
+            <button type="button" class="toggle-confirm-password" aria-label="Show confirm password"
+              aria-pressed="false" id="toggleConfirmPassword" title="Show confirm password">👁️</button>
+            <strong class="form-validation-error">Invalid password</strong>
+          </div>
+          <div id="toggleConfirmDesc" class="sr-only">Press the button to show or hide the password</div>
+          <script>
+            const passwordConfirmInput = document.getElementById('confirmPassword');
+            const toggleConfirmButton = document.getElementById('toggleConfirmPassword')
+
+            toggleConfirmButton.addEventListener('click', () => {
+              const isPassword = passwordConfirmInput.type == 'password';
+
+              passwordConfirmInput.type = isPassword ? 'text' : 'password';
+
+              toggleConfirmButton.setAttribute('aria-label', isPassword ? 'true' : 'false');
+              toggleConfirmButton.title = isPassword ? 'Hide confirm password' : 'Show confirm password';
+              toggleConfirmButton.textContent = isPassword ? '🙈' : '👁️';
+
+            })
+          </script>
+        </div>
+        <div>
+          <input type="submit" value="Update Profile">
+        </div>
+      
+    </form>
+  </main>
+
   <!-- <section id="progress-section">
     <progress id="progress-bar" value="2" max="5">40%</progress>
     <label for="progress-bar">Profile Completeness</label>
